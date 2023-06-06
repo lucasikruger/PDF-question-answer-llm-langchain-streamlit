@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  pdf-question-answer:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    container_name: pdf-qa
+    # restart: always
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./src:/app
+    command: streamlit run --server.port 8501 app.py 
